@@ -31,3 +31,8 @@ Nessuno screenshot desktop/mobile disponibile. Non verificati visivamente i view
 https://idro-costruzioni-srl.onrender.com/
 Repository: https://github.com/codingfortecnic/idro-costruzioni-srl
 Render: srv-dbirsj7b9u1s73cbpdg0. Nessun nuovo servizio o piano a pagamento.
+
+## Esito pubblico effettivo
+
+Deploy dep-dbiu30s9v7es738jnksg e successivo deploy con cache pulita dep-dbiu3ic9v7es738jp0ug: live sul commit b3d5369345d4c0a14b55e72721946e2f8d0e173b.
+Le sette pagine nuove, i 22 segnaposto e le risorse correnti passano i controlli HTTP. Il controllo completo pubblico resta NON superato: alcuni URL precedenti (/images/hero-1536.webp e detail-640.webp) restituiscono ancora i vecchi WebP, anche con query nuova e dopo clearCache. Nessuna pagina o bundle corrente li richiama; nessun file fotografico è presente in dist. Non è quindi confermata la rimozione degli asset residui dal servizio remoto. Gli strumenti Render disponibili non offrono una funzione di eliminazione/purge dei singoli asset. Questo limite va risolto sul servizio/CDN prima di dichiarare eliminati tutti i vecchi URL.
