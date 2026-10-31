@@ -1,5 +1,7 @@
 # Demo con logo e posizioni fotografiche
 
+Aggiornamento successivo: su richiesta dell'utente le 18 anteprime fotografiche sono sostituite da riquadri avorio con bordo ottone e descrizione tra virgolette al centro. Nessun file immagine è caricato nei riquadri. Non sono cliccabili; la lightbox resta disponibile per future fotografie autentiche. Hero e logo trasparente sono conservati. Le note seguenti descrivono anche la precedente impostazione fotografica.
+
 ## Configurazione
 
 `src/data/siteImages.ts` contiene 18 posizioni: 3 Home, 3 Chi siamo, 6 Servizi e 6 Realizzazioni. Ogni voce contiene id, placeholderSrc, authenticSrc, requiredPhoto, alt, status, page e section.
