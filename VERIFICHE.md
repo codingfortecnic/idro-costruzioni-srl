@@ -1,38 +1,36 @@
-﻿# Restyling Black, White & Gold — 31 ottobre 2026
+﻿# Luxury Italian Baroque — report 31 ottobre 2026
 
-## Modifiche
+## Risultato
 
-Ricostruite Home, Chi siamo, Servizi, Realizzazioni e Contatti, oltre alle pagine informative. Nuova hero architettonica animata senza fotografie, palette nero/bianco/oro, composizione asimmetrica e sezioni alternate. Header fisso e menu mobile con gestione focus/Escape, CTA telefono e WhatsApp, footer e metadati aggiornati.
+Ricostruita la hero come copertina centrale, con scultura WebGL reale e fregi laterali. Aggiornate tutte le cinque pagine, header, footer, pannello contatti, recensioni e pagine informative. Ornamenti SVG originali: volute simmetriche, acanto, riccioli, medaglioni, corone e cornici angolari. Nessun motivo proprietario o immagine stock. Cormorant e Manrope locali, nero/avorio/oro con sfumature metalliche. Componenti descritti nel README.
 
-22 segnaposto: Home 7, Chi siamo 3, Servizi 6, Realizzazioni 6. Geometrie, cornici oro, icona e descrizione esatta al centro tra virgolette. Tutti hanno imageSrc null. Nessun dialog o pulsante vuoto nella galleria. Supporto per fotografie future e fallback in caso di errore.
+Riferimento funzionale studiato: C:/Users/matte/OneDrive/Desktop/carrozzeria-moderna-demo/src/components/ServiceGrid.tsx e relativo CSS. Nessuna modifica al progetto della carrozzeria. Ripresi hover, apertura fissata, facce con dettagli/CTA e pulsante accessibile, adattati con transizione 500 ms e composizione ornamentale.
 
-Logo trasparente conservato nei colori esistenti: ricostruzione raster dall’allegato, non file vettoriale originale. Fotografie precedenti rimosse da public, CSS, metadati e componenti attivi; archiviate in assets/archive/editorial-public-images. Sorgenti fuori dalla distribuzione pubblica.
+19 segnaposto: Home 4, Chi siamo 3, Servizi 6, Realizzazioni 6. Quattro varianti, rapporti diversi e configurazione centralizzata. Tutti imageSrc null. Scultura al posto del precedente segnaposto hero; nessuna fotografia utilizzata. Logo esistente trasparente, colori conservati: ricostruzione raster precedente, non originale vettoriale.
 
-Commit di sicurezza: e46a2a3.
+## Scultura
 
-## Controlli
+Tre superfici curve a nastro, larghezza e torsione variabili, due volute tubolari sottili e basamento. Materiali MeshPhysicalMaterial/Standard metallici, roughness controllata, riflessi PMREM da ambiente procedurale RoomEnvironment, tre luci di studio e ombra ambientale semplificata. Lieve rotazione oscillante e risposta al puntatore. Nessun modello o HDR remoto. Modulo separato circa 252 kB gzip, necessario al 3D richiesto. Rendering limitato fuori vista, DPR 1–1,5 con riduzione sotto carico, reduced-motion statico e fallback ornamentale.
 
-- ESLint senza errori; TypeScript e build client/SSR completati.
-- Test statico: sette percorsi, titoli distinti, descrizioni, canonical, Open Graph con logo, un H1, JSON-LD e noindex.
-- 22 ID univoci, etichette e descrizioni; sei servizi, telefono e WhatsApp, link interni e assenza di moduli simulati.
-- Nove risorse richieste, logo/favicon, font e bundle. Nessuna fotografia in dist: i soli raster sono quattro file del marchio.
-- Test HTTP locale e pubblico tramite node scripts/smoke.mjs [origine]. Controlla anche 404 e indisponibilità dei vecchi URL fotografici con parametro anti-cache.
+Riferimenti tecnici primari: https://r3f.docs.pmnd.rs/api/canvas ; https://threejs.org/docs/pages/RoomEnvironment.html ; https://threejs.org/docs/pages/MeshPhysicalMaterial.html .
 
-Il rilascio viene verificato sul commit effettivo e con test HTTPS prima della consegna. ID e commit finali nella risposta di consegna.
+## Collaudo
 
-## Limite della verifica visiva
+- Lint, TypeScript e build client/SSR.
+- Test statici e HTTP: sette pagine, metadati, canonical, noindex, JSON-LD, link, 19 ID e descrizioni, quattro varianti, tre/sei card, disponibilità del modulo 3D e risorse. I soli raster di dist sono marchio e favicon.
+- Chromium Playwright: tutte le cinque pagine a 390, 768, 1440 e 1920 px. Controllo overflow, H1, canvas WebGL, galleria senza lightbox vuota, hover desktop, tap mobile, Enter/Escape e menu mobile.
+- Test dedicato delle sei card con Space/Escape; confronto di due catture della scultura con reduced-motion; perdita simulata WebGL e ripristino del fallback visibile. Nessun pageerror nel ciclo ordinario.
+- Screenshot salvati in QA/local, con card attiva e footer dedicato; QA/online per il controllo pubblico. La cattura lunga nativa della Home presentava un artefatto del compositore WebGL al fondo: sostituita con cattura per segmenti; footer verificato anche separatamente.
+- Immagini esaminate realmente: hero mobile/desktop, card aperta, Home completa, Chi siamo mobile, Servizi desktop, Realizzazioni mobile/desktop, Contatti e footer. Corretti overflow delle griglie, recensioni, spazi nelle cornici panoramiche e pannello indirizzo.
 
-Il servizio browser restituisce «The browser access host is unavailable». I precedenti tentativi nativi sono stati fermati perché il sistema non determinava l’URL in modo affidabile. Nessun limite aggirato.
+La prova usa Chromium con rendering software SwiftShader, non dispositivi fisici. Non rappresenta una misura Lighthouse o una certificazione delle prestazioni su ogni GPU. Il browser integrato non era disponibile; Playwright ha consentito il collaudo.
 
-Nessuno screenshot desktop/mobile disponibile. Non verificati visivamente i viewport 375, 430, 768, 1024, 1440 e 1920 px, console/rete runtime, CLS, hover, animazioni o interazioni nel browser. Responsive, contrasto, gestione del focus e reduced-motion implementati e revisionati nel codice; test HTML/HTTP non sostituiscono il collaudo visivo.
+## Pubblicazione e limiti
 
-## Pubblicazione
+Repository e Render esistenti, nessun servizio o piano nuovo. Il commit di sicurezza prima delle modifiche è e305034. Il commit del sito, deploy live e risultati pubblici sono riportati nella consegna.
 
-https://idro-costruzioni-srl.onrender.com/
-Repository: https://github.com/codingfortecnic/idro-costruzioni-srl
-Render: srv-dbirsj7b9u1s73cbpdg0. Nessun nuovo servizio o piano a pagamento.
+La precedente verifica aveva rilevato vecchi URL fotografici ancora serviti da Render, benché assenti da dist e da ogni pagina attiva; un deploy con cache pulita non li aveva eliminati. Il controllo pubblico dei vecchi URL resta separato dalla verifica visiva della nuova interfaccia e va riportato con il suo esito effettivo.
 
-## Esito pubblico effettivo
+Dati aziendali e recensioni conservati dal brief; nessuna nuova verifica live delle recensioni, certificazione, garanzia o testimonianza inventata. Logo e dati commerciali restano soggetti all’approvazione del titolare prima di un lancio ufficiale.
 
-Deploy dep-dbiu30s9v7es738jnksg e successivo deploy con cache pulita dep-dbiu3ic9v7es738jp0ug: live sul commit b3d5369345d4c0a14b55e72721946e2f8d0e173b.
-Le sette pagine nuove, i 22 segnaposto e le risorse correnti passano i controlli HTTP. Il controllo completo pubblico resta NON superato: alcuni URL precedenti (/images/hero-1536.webp e detail-640.webp) restituiscono ancora i vecchi WebP, anche con query nuova e dopo clearCache. Nessuna pagina o bundle corrente li richiama; nessun file fotografico è presente in dist. Non è quindi confermata la rimozione degli asset residui dal servizio remoto. Gli strumenti Render disponibili non offrono una funzione di eliminazione/purge dei singoli asset. Questo limite va risolto sul servizio/CDN prima di dichiarare eliminati tutti i vecchi URL.
+Ricontrollo prima del rilascio barocco: i precedenti URL hero-1536.webp e detail-640.webp restituiscono ora HTTP 404. La propagazione remota del precedente rilascio risulta quindi avvenuta per questi file; lo smoke test finale verifica anche technical-1024.webp.

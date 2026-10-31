@@ -1,9 +1,22 @@
-﻿# Idro Costruzioni SRL — Black, White & Gold
+﻿# Idro Costruzioni SRL — Luxury Italian Baroque
 
 Sito: https://idro-costruzioni-srl.onrender.com/
 Repository: https://github.com/codingfortecnic/idro-costruzioni-srl
 
-Ricostruzione completa delle cinque pagine con React, TypeScript e Vite. Hero architettonica SVG animata, sezioni editoriali nere e bianche, accenti oro e 22 segnaposto grafici. Nessuna fotografia pubblicata. Logo trasparente conservato nei colori esistenti: ricostruzione raster richiesta dall’utente, non originale vettoriale.
+Cinque pagine principali, privacy e note editoriali, React 19 e TypeScript. Restyling ornamentale originale: nero vellutato, avorio, oro metallico; Cormorant classica e Manrope locali. Nessuna fotografia utilizzata. Logo trasparente esistente mantenuto nei suoi colori, su supporto neutro; è la ricostruzione raster precedentemente richiesta, non un nuovo marchio o un originale vettoriale.
+
+## Componenti
+
+- Ornaments.tsx: LuxuryFlourish, BaroqueCorner, OrnamentalDivider, GoldFiligree, Medallion, DecorativeFrame. Tracciati SVG originali con volute, foglie, riccioli, fregi e gradienti metallici.
+- Sculpture.tsx / SculptureScene.tsx: vera scena Three.js con React Three Fiber, tre nastri tridimensionali a larghezza variabile, due volute, basamento e ombra. Materiali PBR metallici, ambiente di studio procedurale e luci locali. Nessuna texture o modello remoto. Modulo 3D lazy caricato solo dalla Home, circa 252 kB gzip; DPR massimo 1,5, ridotto a 1 con frame lenti. Rendering sospeso fuori vista o a scheda nascosta; demand con movimento ridotto. Fallback ornamentale per errori, assenza o perdita WebGL.
+- ServiceCards.tsx: riprende l’esperienza del componente ServiceGrid.tsx della carrozzeria locale, consultato senza modificarlo: hover e apertura fissata, due facce, descrizione e CTA. Tre card Home e sei Servizi; pulsante +/× accessibile, Enter/Space, Escape, aria-expanded, aria-controls e faccia inattiva inert. Transizione 500 ms, disattivata con movimento ridotto.
+- BaroquePhotoPlaceholder.tsx: 19 posizioni fotografiche con medaglione, descrizione tra virgolette e cornici originali. Quattro composizioni: scura, avorio, panoramica, verticale ad arco. La Home dedica la hero alla scultura e sposta il suo spazio fotografico nella presentazione.
+
+## Fotografie future
+
+src/data/siteImages.ts centralizza 19 posizioni: Home 4, Chi siamo 3, Servizi 6, Realizzazioni 6. Per aggiungere una foto autentica autorizzata basta inserire il file ottimizzato in public e impostare imageSrc e alt. Il layout resta invariato. File mancante: ripristino del segnaposto. La lightbox si attiva solo per foto configurate; nessun segnaposto è cliccabile.
+
+Vecchie fotografie e marchi non utilizzati restano in assets/archive, fuori da public/dist; originali e provenienza nei rispettivi archivi assets. I soli raster distribuiti sono logo e favicon. I vecchi documenti degli asset sono storici.
 
 ## Comandi Windows
 
@@ -12,26 +25,19 @@ npm.cmd ci
 npm.cmd run dev
 npm.cmd run lint
 npm.cmd run build
-npm.cmd run preview
 npm.cmd test
+npm.cmd run preview
 node scripts/smoke.mjs http://127.0.0.1:4173
+node scripts/visual-qa.mjs
+node scripts/interaction-qa.mjs
 node scripts/smoke.mjs https://idro-costruzioni-srl.onrender.com
+node scripts/visual-qa.mjs https://idro-costruzioni-srl.onrender.com
 ```
 
-La build comprende TypeScript, client e pre-render di sette percorsi con metadati distinti. Demo noindex/nofollow, robots Disallow, canonical, sitemap e JSON-LD conservati. Font locali con licenze. Nessun backend, modulo simulato o analytics.
+Playwright: npx.cmd playwright install chromium. Screenshot e risultati in QA/local e QA/online, fuori dalla distribuzione. La Home viene catturata per segmenti per evitare artefatti della cattura lunga del compositore WebGL. Le altre pagine e il footer hanno catture dedicate.
 
-## Fotografie future
+## Hosting e dati
 
-src/data/siteImages.ts centralizza 22 posizioni: Home 7, Chi siamo 3, Servizi 6, Realizzazioni 6. Ogni voce contiene descrizione, rapporto, variante, alt e imageSrc, attualmente null. Per una fotografia autentica autorizzata aggiungere il file ottimizzato in public e impostare percorso e alt. Non occorre cambiare layout.
+Sette percorsi pre-renderizzati, metadati distinti, canonical, Open Graph con logo, JSON-LD, sitemap e robots. Demo noindex/nofollow conservata. Nessun modulo fittizio, analytics o incorporamento Maps automatico. Recapiti e dati invariati in src/company.ts. Recensioni 5,0/5, 32 e data 31 ottobre 2026 provengono dal brief, non da verifica live.
 
-PremiumImageSlot mostra geometrie, cornice oro, icona e descrizione centrale tra virgolette; un’immagine mancante torna al segnaposto. Gallery apre la lightbox soltanto per fotografie configurate; i segnaposto non sono cliccabili. La lightbox futura gestisce frecce, Escape e ritorno del focus.
-
-Le precedenti fotografie WebP sono in assets/archive/editorial-public-images, fuori da public e dist. Originali e provenienza restano in assets/editorial-source e assets/provenance.json. Vecchi marchi in assets/archive/legacy-brand. Gli altri documenti degli asset descrivono versioni storiche. I soli raster pubblicati sono logo trasparente e favicon.
-
-## Dati e hosting
-
-src/company.ts centralizza i dati. Recensioni 5,0/5 e 32: valori del brief, rilevazione indicata al 31 ottobre 2026, non verifica live. Dati commerciali e servizi soggetti a conferma del titolare, come nelle Note editoriali. Telefono, WhatsApp e Maps collegati; nessun invio email simulato.
-
-Render esistente: srv-dbirsj7b9u1s73cbpdg0, workspace tea-dak14nvqj5pc73fencb0, main, build npm ci && npm run build, publish dist, Node 22. Nessun nuovo servizio o piano a pagamento. Il servizio creato da URL pubblico non riceve push senza associazione del provider Git; il rilascio viene avviato sullo stesso servizio quando non parte automaticamente.
-
-Controlli e limiti: VERIFICHE.md.
+Render esistente srv-dbirsj7b9u1s73cbpdg0, workspace tea-dak14nvqj5pc73fencb0, main, build npm ci && npm run build, publish dist, Node 22. Nessun nuovo servizio o piano a pagamento. Commit di sicurezza e305034. Esiti e limiti in VERIFICHE.md.
