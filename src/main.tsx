@@ -18,7 +18,7 @@ function Reveal({children,className='',delay=0}:{children:React.ReactNode;classN
  const reduced=useReducedMotion();return <motion.div className={className} initial={reduced?false:{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.1}} transition={{duration:.75,delay,ease:[.22,.65,.3,1]}}>{children}</motion.div>;
 }
 function Button({to,children,outline=false}:{to:string;children:React.ReactNode;outline?:boolean}){return <Link to={to} className={`button ${outline?'button-outline':''}`}><span>{children}</span><ArrowUpRight size={18}/></Link>;}
-function Brand(){return <Link to="/" className="brand" aria-label="Idro Costruzioni SRL, home"><img src="/brand/logo-transparent-800.webp" srcSet="/brand/logo-transparent-400.webp 400w, /brand/logo-transparent-800.webp 800w, /brand/logo-transparent-1600.webp 1600w" sizes="(max-width:600px) 228px, 258px" width={1774} height={887} alt="Idro Costruzioni SRL"/></Link>;}
+function Brand(){return <Link to="/" className="brand" aria-label="Idro Costruzioni SRL, home"><img src="/brand/logo-transparent-800.webp" srcSet="/brand/logo-transparent-400.webp 400w, /brand/logo-transparent-800.webp 800w, /brand/logo-transparent-1600.webp 1600w" sizes="(max-width:600px) 145px, 180px" width={1774} height={887} alt="Idro Costruzioni SRL"/></Link>;}
 function Header(){
  const [open,setOpen]=useState(false);const [scrolled,setScrolled]=useState(false);const header=useRef<HTMLElement>(null);const toggle=useRef<HTMLButtonElement>(null);
  useEffect(()=>{const update=()=>setScrolled(window.scrollY>35);update();window.addEventListener('scroll',update,{passive:true});return()=>window.removeEventListener('scroll',update)},[]);
