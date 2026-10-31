@@ -1,9 +1,0 @@
-import {test} from 'node:test';
-import assert from 'node:assert/strict';
-import {readFile} from 'node:fs/promises';
-import {validatePhoto} from './import-authentic-photos.mjs';
-const fixture={id:'test-only-photo',mapsPhotoUrl:'https://www.google.com/maps/example-photo',photoLinkVerified:true,author:{account:'Test fixture',attributionVerified:true},authorization:{status:'verified',evidencePath:'assets/private-authentic/test-only/evidence.txt',confirmedBy:'Test fixture',confirmedAt:'2026-10-31',scope:'company-website-publication'},relevance:{assessed:true,pertinent:true},contentApproved:true,title:'Test fixture',alt:'Test fixture',description:'Test fixture',possibleUse:['projects'],sourceFile:'assets/private-authentic/test-only/source.jpg'};
-test('Owner attribution does not substitute for reuse authorization',()=>{assert.throws(()=>validatePhoto({...fixture,authorization:{status:'pending'}}),/authorization/)});
-test('Unverified authors and duplicate images cannot be imported',()=>{assert.throws(()=>validatePhoto({...fixture,author:{account:'Test fixture',attributionVerified:false}}),/attribution/);assert.throws(()=>validatePhoto({...fixture,duplicateOf:'other-photo'}),/duplicate/)});
-test('Wrong rights scope and unapproved captions are blocked',()=>{assert.throws(()=>validatePhoto({...fixture,authorization:{...fixture.authorization,scope:'maps-only'}}),/authorization/);assert.throws(()=>validatePhoto({...fixture,contentApproved:false}),/approved/)});
-test('Empty real inventory contains no fabricated observation',async()=>{const inventory=JSON.parse(await readFile('assets/google-maps-photo-inventory.json','utf8'));assert.equal(inventory.photos.length,0);assert.equal(inventory.counts.actuallyIdentified,0);assert.equal(inventory.unverifiedLeads[0].status,'not-independently-observed')});

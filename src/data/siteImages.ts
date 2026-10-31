@@ -1,36 +1,40 @@
-export type ImagePage='home'|'chi-siamo'|'servizi'|'realizzazioni';
+export type SlotVariant='ink'|'graphite'|'smoke';
 export interface SiteImage {
  id:string;
- placeholderSrc:string;
- authenticSrc:string|null;
- requiredPhoto:string;
+ description:string;
+ imageSrc:string|null;
+ ratio:string;
+ variant:SlotVariant;
  alt:string;
- status:'placeholder'|'authentic';
- page:ImagePage;
+ page:'home'|'chi-siamo'|'servizi'|'realizzazioni';
  section:string;
 }
-const editorialAlt:Record<string,string>={technical:'Visual editoriale generato di un collettore idraulico',kitchen:'Visual editoriale generato di una cucina contemporanea',warmth:'Visual editoriale generato di un soggiorno con radiatore',climate:'Visual editoriale generato di una camera con climatizzatore',hero:'Visual editoriale generato di un bagno in marmo con vasca',detail:'Visual editoriale generato di un lavabo e rubinetteria',shower:'Visual editoriale generato di una doccia in vetro',architecture:'Visual editoriale generato di architettura interna in pietra e legno'};
-function slot(id:string,image:string,requiredPhoto:string,page:ImagePage,section:string):SiteImage{return {id,placeholderSrc:`/images/${image}-1536.webp`,authenticSrc:null,requiredPhoto,alt:editorialAlt[image],status:'placeholder',page,section};}
+function slot(id:string,description:string,page:SiteImage['page'],section:string,ratio='4 / 3',variant:SlotVariant='graphite'):SiteImage{
+ return {id,description,imageSrc:null,ratio,variant,alt:description,page,section};
+}
 export const siteImages:SiteImage[]=[
- slot('home-impianto','kitchen','impianto idraulico realizzato','home','lavori'),
- slot('home-bagno','shower','bagno completato dall’azienda','home','lavori'),
- slot('home-riscaldamento','warmth','installazione di riscaldamento','home','lavori'),
- slot('azienda-squadra','climate','squadra Idro Costruzioni','chi-siamo','azienda'),
- slot('azienda-lavorazione','technical','tecnici durante una lavorazione','chi-siamo','azienda'),
- slot('azienda-dettaglio','hero','dettaglio di un lavoro completato','chi-siamo','azienda'),
- slot('servizio-idraulica','detail','tubazioni e collegamenti di un impianto realizzato','servizi','servizio-1'),
- slot('servizio-riscaldamento','warmth','caldaia, radiatori o impianto termico installato','servizi','servizio-2'),
- slot('servizio-climatizzazione','climate','climatizzatore installato dall’azienda','servizi','servizio-3'),
- slot('servizio-manutenzione','technical','tecnico durante un intervento','servizi','servizio-4'),
- slot('servizio-bagno-cucina','shower','bagno o cucina con impianti completati','servizi','servizio-5'),
- slot('servizio-reti','architecture','collegamenti idrici e scarichi realizzati','servizi','servizio-6'),
- slot('gallery-bagno','hero','bagno ristrutturato','realizzazioni','galleria'),
- slot('gallery-idraulica','technical','impianto idraulico completo','realizzazioni','galleria'),
- slot('gallery-caldaia','warmth','installazione caldaia','realizzazioni','galleria'),
- slot('gallery-clima','climate','impianto di climatizzazione','realizzazioni','galleria'),
- slot('gallery-cantiere','kitchen','lavorazione in cantiere','realizzazioni','galleria'),
- slot('gallery-dettaglio','detail','dettaglio di installazione completata','realizzazioni','galleria'),
+ slot('home-hero','Fotografia principale di una realizzazione Idro Costruzioni','home','hero','4 / 5','ink'),
+ slot('home-servizio-idraulica','Impianto idraulico realizzato','home','servizi','4 / 5'),
+ slot('home-servizio-calore','Installazione caldaia o impianto termico','home','servizi','4 / 5','ink'),
+ slot('home-servizio-clima','Climatizzatore installato dall’azienda','home','servizi','4 / 5','smoke'),
+ slot('home-lavoro-idraulica','Impianto idraulico realizzato','home','lavori','4 / 5','ink'),
+ slot('home-lavoro-bagno','Bagno completato dall’azienda','home','lavori','3 / 2'),
+ slot('home-lavoro-calore','Installazione di riscaldamento','home','lavori','3 / 2','smoke'),
+ slot('azienda-squadra','Fotografia della squadra Idro Costruzioni','chi-siamo','squadra','4 / 5','ink'),
+ slot('azienda-lavorazione','Tecnici durante una lavorazione','chi-siamo','approccio','3 / 2'),
+ slot('azienda-dettaglio','Dettaglio di un impianto completato','chi-siamo','approccio','4 / 5','smoke'),
+ slot('servizio-idraulica','Impianto idraulico realizzato','servizi','servizio-1','5 / 4'),
+ slot('servizio-calore','Installazione caldaia o impianto termico','servizi','servizio-2','4 / 5','ink'),
+ slot('servizio-clima','Climatizzatore installato dall’azienda','servizi','servizio-3','5 / 4','smoke'),
+ slot('servizio-manutenzione','Tecnico durante un intervento','servizi','servizio-4','4 / 5'),
+ slot('servizio-bagno','Bagno o cucina completati','servizi','servizio-5','5 / 4','ink'),
+ slot('servizio-scarichi','Tubazioni e scarichi realizzati','servizi','servizio-6','4 / 5','smoke'),
+ slot('gallery-bagno','Bagno ristrutturato','realizzazioni','galleria','4 / 5','ink'),
+ slot('gallery-idraulica','Impianto idraulico completo','realizzazioni','galleria','5 / 4'),
+ slot('gallery-calore','Installazione di riscaldamento','realizzazioni','galleria','5 / 4','smoke'),
+ slot('gallery-clima','Impianto di climatizzazione','realizzazioni','galleria','4 / 5','ink'),
+ slot('gallery-cantiere','Lavorazione in cantiere','realizzazioni','galleria','4 / 5'),
+ slot('gallery-dettaglio','Dettaglio di installazione completata','realizzazioni','galleria','5 / 4','smoke'),
 ];
-export const imagesForPage=(page:ImagePage)=>siteImages.filter(image=>image.page===page);
-export const isAuthentic=(image:SiteImage)=>image.status==='authentic'&&!!image.authenticSrc;
-export const imageSource=(image:SiteImage)=>isAuthentic(image)?image.authenticSrc!:image.placeholderSrc;
+export function getSlot(id:string){const found=siteImages.find(image=>image.id===id);if(!found)throw Error('Missing photo configuration: '+id);return found;}
+export const galleryImages=()=>siteImages.filter(image=>image.page==='realizzazioni');

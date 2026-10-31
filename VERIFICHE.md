@@ -1,55 +1,33 @@
-# Redesign — report del 31 ottobre 2026
+﻿# Restyling Black, White & Gold — 31 ottobre 2026
 
-## Direzione grafica e modifiche
+## Modifiche
 
-- Redesign integrale delle cinque pagine: hero fotografiche, gerarchia editoriale Cormorant/Manrope, palette avorio/pietra/blu notte e accenti ottone.
-- Home con immagine full bleed, zoom lento, leggero parallax, luce ambientale e titoli in entrata. Nessun oggetto 3D. Supporto reduced-motion.
-- Header trasparente che diventa solido, menu mobile dedicato con Escape e gestione del focus.
-- Servizi fotografici: tre card in home; sei capitoli immagine/testo alternati nella pagina Servizi, ognuno con CTA e indice.
-- Chi siamo editoriale, Realizzazioni con separazione esplicita tra gallery aziendale futura e ispirazioni, lightbox con dialog nativo, frecce, Escape e ripristino focus.
-- Contatti con telefono immediato, WhatsApp, indirizzo, indicazioni e recensioni; nessun invio simulato.
-- Avvertenze principali rimosse, indicazione demo nel footer e Note editoriali dettagliate.
-- Pre-render HTML con contenuti, titoli, descrizioni, canonical, Open Graph, JSON-LD, sitemap e robots; noindex preservato.
+Ricostruite Home, Chi siamo, Servizi, Realizzazioni e Contatti, oltre alle pagine informative. Nuova hero architettonica animata senza fotografie, palette nero/bianco/oro, composizione asimmetrica e sezioni alternate. Header fisso e menu mobile con gestione focus/Escape, CTA telefono e WhatsApp, footer e metadati aggiornati.
 
-## Analisi e materiale fotografico
+22 segnaposto: Home 7, Chi siamo 3, Servizi 6, Realizzazioni 6. Geometrie, cornici oro, icona e descrizione esatta al centro tra virgolette. Tutti hanno imageSrc null. Nessun dialog o pulsante vuoto nella galleria. Supporto per fotografie future e fallback in caso di errore.
 
-Lo stato precedente presentava hero senza fotografia, oggetto 3D sospeso, box omogenei, testo minuto, scarsa differenziazione fra sezioni e banner tecnici invasivi. Analisi del codice di tutte le pagine e della struttura disponibile eseguita prima delle modifiche. Commit di sicurezza: `921ba85`.
+Logo trasparente conservato nei colori esistenti: ricostruzione raster dall’allegato, non file vettoriale originale. Fotografie precedenti rimosse da public, CSS, metadati e componenti attivi; archiviate in assets/archive/editorial-public-images. Sorgenti fuori dalla distribuzione pubblica.
 
-Nell’allegato accessibile era presente soltanto il brief; nessuna fotografia di riferimento. La scheda Google Maps non era leggibile dagli strumenti web disponibili. La ricerca pubblica non ha restituito file aziendali con autorizzazione verificabile. Non è quindi stato possibile identificare autori, titolarità e riuso delle foto Maps; nessuna è stata scaricata o ripubblicata. Restano da acquisire i file autorizzati dal titolare.
+Commit di sicurezza: e46a2a3.
 
-Sono stati creati otto visual editoriali originali tramite Imagegen integrato: bagno in marmo con vasca freestanding, dettaglio lavabo/rubinetto, doccia in vetro, soggiorno con radiatore, camera con climatizzatore, cucina, collettore idraulico e architettura interna. Non rappresentano lavori aziendali e sono identificati come editoriali nelle pagine, negli alt text, nella lightbox e nelle note.
+## Controlli
 
-Originali e prompt: `assets/editorial-source/` e `assets/provenance.json`. WebP: `public/images/`. 24 varianti responsive: circa 2,45 MiB complessivi, hero 1536px circa 180 KiB e hero 640px circa 41 KiB. Non vengono caricate tutte le varianti dal browser. Nessuna ripetizione della stessa immagine nelle sezioni di una singola pagina. Tavola asset controllata visivamente: `assets/editorial-contact-sheet.png`.
+- ESLint senza errori; TypeScript e build client/SSR completati.
+- Test statico: sette percorsi, titoli distinti, descrizioni, canonical, Open Graph con logo, un H1, JSON-LD e noindex.
+- 22 ID univoci, etichette e descrizioni; sei servizi, telefono e WhatsApp, link interni e assenza di moduli simulati.
+- Nove risorse richieste, logo/favicon, font e bundle. Nessuna fotografia in dist: i soli raster sono quattro file del marchio.
+- Test HTTP locale e pubblico tramite node scripts/smoke.mjs [origine]. Controlla anche 404 e indisponibilità dei vecchi URL fotografici con parametro anti-cache.
 
-## Controlli tecnici
+Il rilascio viene verificato sul commit effettivo e con test HTTPS prima della consegna. ID e commit finali nella risposta di consegna.
 
-- ESLint, TypeScript e build client/HTML statico completati.
-- Audit npm dopo aggiornamento del tool di lint: zero vulnerabilità rilevate; audit produzione zero.
-- Smoke test locale su tutte le cinque pagine, privacy e note editoriali: HTTP 200, titoli distinti, descrizioni, un H1 per pagina, versione redesign, JSON-LD e footer.
-- Controllati i 29 asset: 24 immagini responsive, tre font, CSS e JavaScript. Nessuna dipendenza 3D o riferimento alle vecchie composizioni.
-- Test semantico: sei sezioni servizi, presenza lightbox e distinzione editoriale, telefono e WhatsApp corretti, banner 32 recensioni, assenza form fittizio, link interni coerenti, sitemap e robots.
-- Script ripetibile: `node scripts/smoke.mjs [origine]`; su HTTPS controlla anche il 404.
+## Limite della verifica visiva
 
-## Verifica visiva: limite esplicito
+Il servizio browser restituisce «The browser access host is unavailable». I precedenti tentativi nativi sono stati fermati perché il sistema non determinava l’URL in modo affidabile. Nessun limite aggirato.
 
-Il servizio browser ha restituito «The browser access host is unavailable». Il tentativo di accesso nativo a Chrome è stato fermato perché il sistema non riusciva a determinare l’URL corrente con sufficiente affidabilità. Non sono stati aggirati questi limiti.
+Nessuno screenshot desktop/mobile disponibile. Non verificati visivamente i viewport 375, 430, 768, 1024, 1440 e 1920 px, console/rete runtime, CLS, hover, animazioni o interazioni nel browser. Responsive, contrasto, gestione del focus e reduced-motion implementati e revisionati nel codice; test HTML/HTTP non sostituiscono il collaudo visivo.
 
-Non sono stati acquisiti screenshot desktop/mobile del sito. Non sono stati eseguiti controlli visuali del layout a 375, 430, 768, 1024, 1440 e 1920px, controllo console/rete del browser, misura CLS, verifica runtime delle animazioni e dei ritagli o test interattivi di menu/lightbox. La tavola degli asset non sostituisce questi test. Le regole responsive e reduced-motion e le interazioni sono implementate e revisionate nel codice, ma non presentate come verificate nel browser.
+## Pubblicazione
 
-## Pubblicazione e configurazione
-
-Sito e infrastruttura esistenti mantenuti: https://idro-costruzioni-srl.onrender.com/ ; repository https://github.com/codingfortecnic/idro-costruzioni-srl ; servizio Render `srv-dbirsj7b9u1s73cbpdg0`, branch main. Nessun nuovo servizio o piano a pagamento. Il deploy viene verificato sul commit effettivo e con lo smoke test HTTPS prima della consegna.
-
-L’auto deploy richiede ancora l’associazione del provider GitHub a Render: la sola opzione AutoDeploy=yes con URL pubblico non riceve i push. Aggiornamento autorizzato tramite deploy manuale dello stesso servizio. Dashboard: https://dashboard.render.com/static/srv-dbirsj7b9u1s73cbpdg0 . I commit e l’esito finale sono riportati nella consegna in chat.
-
-## Conferme ancora necessarie
-
-File fotografici originali e diritti; servizi realmente disponibili e relative abilitazioni; telefono, WhatsApp, orari e testi commerciali; recensioni Google e data; approvazione del titolare; canale email e informativa definitiva prima di un eventuale modulo. Nessuna certificazione, anzianità, partnership o testimonianza inventata.
-
-## Aggiornamento successivo: logo ricostruito e 18 posizioni
-
-Logo ricostruito ad alta definizione dal riferimento allegato, con Imagegen integrato su esplicita richiesta successiva dell'utente. Usato in header/footer su bianco e in favicon. Ispezionato come asset, non certificato come identico vettoriale. Approvazione del titolare ancora necessaria. Documentazione e prompt in `assets/brand-source/` e `assets/LOGO-ORIGINALE.md`.
-
-Aggiunte 18 posizioni fotografiche con immagini editoriali ed etichette precise, configurabili in `src/data/siteImages.ts`. Gallery Realizzazioni di sei immagini con lightbox. Nessuna foto autentica o immagine fittizia di personale aggiunta. Hero confrontata con la versione pubblicata precedente: HTML identico, SHA-256 `90fe219b81e5bc7c6151092a988b0821a672fbc544a53d05c8334d7565a71799`. Palette, font, recensioni e struttura generale mantenuti.
-
-Lint, TypeScript/build, check delle 18 posizioni e loghi, smoke test HTTP di sette pagine e 33 asset superati in locale; quattro test sui controlli delle autorizzazioni superati. Browser ancora indisponibile: Chrome è stato ripristinato dalla condizione minimizzata, ma il sistema ha fermato la sessione perché non può determinarne l'URL. Nessuno screenshot o collaudo visivo desktop/mobile e della lightbox dichiarato eseguito. Deploy e controlli HTTPS finali sono riportati nella consegna in chat.
+https://idro-costruzioni-srl.onrender.com/
+Repository: https://github.com/codingfortecnic/idro-costruzioni-srl
+Render: srv-dbirsj7b9u1s73cbpdg0. Nessun nuovo servizio o piano a pagamento.
