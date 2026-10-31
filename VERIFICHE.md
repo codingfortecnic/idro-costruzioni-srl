@@ -34,3 +34,13 @@ La precedente verifica aveva rilevato vecchi URL fotografici ancora serviti da R
 Dati aziendali e recensioni conservati dal brief; nessuna nuova verifica live delle recensioni, certificazione, garanzia o testimonianza inventata. Logo e dati commerciali restano soggetti all’approvazione del titolare prima di un lancio ufficiale.
 
 Ricontrollo prima del rilascio barocco: i precedenti URL hero-1536.webp e detail-640.webp restituiscono ora HTTP 404. La propagazione remota del precedente rilascio risulta quindi avvenuta per questi file; lo smoke test finale verifica anche technical-1024.webp.
+
+## Esito del rilascio pubblico
+
+Sito pubblicato sul commit 14d42d208237754f07f5dbeebc2ebe91be6c35fb, deploy Render dep-dbiuoa6tlv9c73bpb14g, stato live. Servizio e piano esistenti invariati.
+
+Smoke test HTTPS superato: sette percorsi, dieci risorse inclusa SculptureScene, SEO e contenuti. Tutti i 24 URL delle precedenti fotografie archiviate restituiscono HTTP 404; il limite residuo del precedente rilascio è risolto nei controlli effettuati.
+
+Test di interazione pubblico superato: sei card con Space/Escape, scultura immobile con reduced-motion e ritorno al fallback ornamentale dopo perdita simulata del contesto WebGL. Controllo console/rete sulle cinque pagine: zero errori console e zero richieste fallite.
+
+Screenshot effettivi in QA/online (non pubblicati dal sito), con Home composta per segmenti, cinque pagine, card attiva e footer a 390, 768, 1440 e 1920 px. I risultati della matrice sono registrati in QA/online/results.json. Esaminate anche le catture pubbliche della hero mobile, della card aperta e della hero desktop grande.

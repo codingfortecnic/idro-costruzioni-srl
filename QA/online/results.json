@@ -1,0 +1,108 @@
+{
+  "origin": "https://idro-costruzioni-srl.onrender.com",
+  "results": [
+    {
+      "route": "/",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/chi-siamo",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/servizi",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/realizzazioni",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/contatti",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/chi-siamo",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/servizi",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/realizzazioni",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/contatti",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/chi-siamo",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/servizi",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/realizzazioni",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/contatti",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/chi-siamo",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/servizi",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/realizzazioni",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "route": "/contatti",
+      "width": 1920,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "webglFallback": true,
+  "checkedAt": "2026-10-31T13:31:39.946Z"
+}
