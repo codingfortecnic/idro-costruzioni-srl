@@ -1,0 +1,3 @@
+31 ottobre 2026. Imagegen integrato, modifica del file logo-ricostruito.png con transparent_background=true.
+
+Remove ONLY the external white background from this exact logo, creating genuine alpha transparency. Keep the entire logo, all geometry, exact text IDRO COSTRUZIONI SRL, green lettering, green leaves and swoosh, house outline and lightning bolt, four colored utility symbols, gradients, proportions and original canvas framing unchanged. Important: retain intentional WHITE interior fill of the house/roof and white interior details in flame, snowflake and water drop; only the empty background around the mark must be transparent. No redesign, no new lettering, no recoloring, no shadows, no checkerboard painted into image. Output clean high-resolution RGBA cutout.
