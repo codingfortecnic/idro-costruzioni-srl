@@ -6,6 +6,8 @@ export const company = {
  // Demo: richiede conferma del titolare prima di una pubblicazione commerciale.
  commercialApproved:false,
 };
+// Solo dati societari riscontrati nelle fonti pubbliche: niente recensioni o recapiti non verificati.
+export const businessSchema = {'@context':'https://schema.org','@type':'LocalBusiness',name:company.name,taxID:company.vat,address:{'@type':'PostalAddress',streetAddress:company.address,addressLocality:'Sassuolo',addressRegion:'MO',postalCode:'41049',addressCountry:'IT'}};
 export const services = [
  ['Impianti idraulici','Soluzioni per la distribuzione dell’acqua, studiate in funzione degli spazi e delle esigenze dell’edificio.','Acqua, dove serve.'],
  ['Impianti di riscaldamento','Valutazione e realizzazione di impianti per il comfort termico, con attenzione alla funzionalità e alla gestione quotidiana.','Il comfort prende forma.'],

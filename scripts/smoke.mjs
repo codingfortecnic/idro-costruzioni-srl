@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+const origin=(process.argv[2]||'http://127.0.0.1:4173').replace(/\/$/,'');
+const routes=['/','/chi-siamo','/servizi','/realizzazioni','/contatti','/privacy'];
+const titles=new Set(); const assets=new Set();
+for(const path of routes){const response=await fetch(origin+path);assert.equal(response.status,200,path);const html=await response.text();const title=html.match(/<title>(.*?)<\/title>/)?.[1];assert.ok(title,path+' title');assert.ok(!titles.has(title),'duplicate title');titles.add(title);assert.match(html,/<meta name="description" content="[^"]+"/);assert.match(html,/<html lang="it"/);assert.match(html,/noindex,nofollow/);if(origin.startsWith('https://'))assert.ok(html.includes(`href="${origin}${path}"`),'canonical '+path);for(const match of html.matchAll(/(?:src|href)="(\/assets\/[^\"]+)"/g))assets.add(match[1]);console.log('PASS',path,title)}
+for(const path of assets){const response=await fetch(origin+path);assert.equal(response.status,200,path);const body=await response.text();assert.ok(body.length>0);if(path.endsWith('.js')){assert.ok(response.headers.get('content-type')?.includes('javascript'));for(const match of body.matchAll(/(?:["'])(PipeScene-[a-zA-Z0-9_-]+\.js)["']/g)){const r=await fetch(origin+'/assets/'+match[1]);assert.equal(r.status,200);assert.ok(r.headers.get('content-type')?.includes('javascript'));console.log('PASS lazy 3D bundle',match[1])}}console.log('PASS asset',path)}
+const robots=await fetch(origin+'/robots.txt');assert.equal(robots.status,200);assert.match(await robots.text(),/Disallow: \//);
+const sitemap=await fetch(origin+'/sitemap.xml');assert.equal(sitemap.status,200);const xml=await sitemap.text();if(origin.startsWith('https://'))for(const p of routes)assert.ok(xml.includes(origin+p),'sitemap '+p);
+if(origin.startsWith('https://'))assert.equal((await fetch(origin+'/pagina-inesistente')).status,404);
+console.log('PASS robots, sitemap, HTTPS routing. Browser rendering and interactions require separate visual QA.');

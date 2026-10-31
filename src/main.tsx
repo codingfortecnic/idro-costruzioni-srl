@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import { ArrowUpRight, ArrowRight, Droplets, Flame, Wind, Wrench, Bath, Waves, Phone, MapPin, Menu, X, Check, Plus, MessageCircle } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
-import { company, services } from './company';
+import { company, services, businessSchema } from './company';
 import './style.css';
 const Scene=lazy(()=>import('./PipeScene'));
 const icons=[Droplets,Flame,Wind,Wrench,Bath,Waves];
@@ -27,4 +27,8 @@ function Contacts(){return <><PageIntro number="CONTATTI" title="Diamo forma al 
 function Footer(){return <footer><div className="footer-top"><Link className="brand" to="/"><span className="brand-mark"><Droplets size={26}/></span><span>IDRO<span className="brand-sub">COSTRUZIONI SRL</span></span></Link><p>La precisione che dà forma<br/>ai tuoi impianti.</p><nav aria-label="Navigazione nel footer">{links.slice(1).map(([p,l])=><Link key={p} to={p}>{l}</Link>)}</nav><div><a href={`tel:${company.tel}`}>{company.phone}</a><p>{company.address}<br/>{company.city}</p></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Idro Costruzioni SRL · P. IVA {company.vat}</span><span>Demo di presentazione · contenuti in approvazione</span><Link to="/privacy">Privacy</Link></div></footer>}
 function Privacy(){return <><PageIntro number="PRIVACY" title="Informazioni su questa demo." copy="Questa anteprima non utilizza strumenti di analisi, cookie pubblicitari o moduli di raccolta dati attivi."/><section className="section prose"><h2>Navigazione e collegamenti esterni</h2><p>La piattaforma di hosting può trattare dati tecnici necessari a servire le pagine. I collegamenti a Google Maps e WhatsApp aprono servizi esterni, che applicano le proprie informative. Nessun contenuto di questi servizi viene incorporato automaticamente.</p><h2>Modulo di contatto</h2><p>Il modulo è disattivato e non trasmette dati. Prima dell’attivazione commerciale occorre confermare titolare del trattamento, recapiti, finalità, base giuridica, conservazione e fornitori. Questa pagina descrive esclusivamente il funzionamento tecnico della demo.</p></section></>}
 function App(){return <BrowserRouter><a href="#main" className="skip-link">Vai al contenuto</a><SEO/><Header/><main id="main"><Routes><Route path="/" element={<Home/>}/><Route path="/chi-siamo" element={<About/>}/><Route path="/servizi" element={<Services/>}/><Route path="/realizzazioni" element={<Projects/>}/><Route path="/contatti" element={<Contacts/>}/><Route path="/privacy" element={<Privacy/>}/><Route path="*" element={<section className="page-intro"><span className="eyebrow">404</span><h1>Qui il percorso si interrompe.</h1><p>La pagina richiesta non esiste.</p><Button to="/">Torna alla home</Button></section>}/></Routes></main><Footer/></BrowserRouter>}
+const structuredData=document.createElement('script');
+structuredData.type='application/ld+json';
+structuredData.textContent=JSON.stringify(businessSchema);
+document.head.append(structuredData);
 createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);
