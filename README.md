@@ -1,21 +1,42 @@
-# Idro Costruzioni SRL
+# Idro Costruzioni SRL — Architectural redesign
 
-Demo aziendale React + TypeScript + Vite, cinque pagine, composizione originale Three.js / React Three Fiber. Tutti i file risiedono in questa cartella.
+Sito: https://idro-costruzioni-srl.onrender.com/  
+Repository: https://github.com/codingfortecnic/idro-costruzioni-srl
 
-## Sviluppo
+React 19, TypeScript, Vite, React Router, Motion, Lucide. Frontend statico, nessun backend. Cinque pagine principali, privacy e note editoriali. Il precedente modello Three.js e le illustrazioni dei tubi sono stati rimossi, incluse le dipendenze non più necessarie.
 
-Su Windows usare `npm.cmd ci`, `npm.cmd run dev`, `npm.cmd run build`. La build esegue il controllo TypeScript e genera pagine HTML distinte, robots e sitemap. `npm.cmd run preview` serve la build.
+## Comandi Windows
 
-## Render
+```text
+npm.cmd ci
+npm.cmd run dev
+npm.cmd run lint
+npm.cmd run build
+npm.cmd run preview
+npm.cmd test
+node scripts/smoke.mjs https://idro-costruzioni-srl.onrender.com
+```
 
-Static Site gratuito, repository `codingfortecnic/idro-costruzioni-srl`, branch `main`, build `npm ci && npm run build`, publish directory `dist`. AutoDeploy impostato su yes, ma serve collegare il provider GitHub a Render per ricevere i push: il sito è stato creato da URL pubblico. Vedi VERIFICHE.md. `render.yaml` contiene il rewrite per un eventuale deploy Blueprint; il sito effettivo utilizza directory HTML reali per le cinque pagine e 404.html per gli indirizzi inesistenti.
+La build genera bundle client, un renderer temporaneo `.prerender/` e HTML completi per ogni percorso. `dist/` e `.prerender/` non sono versionati. Il middleware di preview serve gli HTML specifici anche per URL senza slash finale. Su Render le pagine sono directory reali e gli URL sconosciuti usano `404.html`. La navigazione client continua a usare React Router.
 
-Impostare `VITE_SITE_URL` all'origine HTTPS assegnata da Render per generare canonical e sitemap con l'URL effettivo.
+## Visual e tipografia
 
-## Contenuti da approvare
+Otto concept editoriali originali generati con Imagegen, non fotografie di lavori aziendali. Originali in `assets/editorial-source/`; prompt e provenienza in `assets/provenance.json`; versioni WebP in `public/images/`, larghezze 640, 1024 e 1536. `npm.cmd run images` rigenera le 24 versioni con Sharp. Manifest dei pesi in `assets/image-manifest.json`. La tavola `assets/editorial-contact-sheet.png` serve a controllare la coerenza degli asset, non è uno screenshot del sito.
 
-`src/company.ts` centralizza recapiti, recensioni e servizi. Telefono, account WhatsApp, punteggio e conteggio recensioni sono dati forniti nel brief, da confermare. Ragione sociale, sede e partita IVA trovano riscontro in fonti pubbliche secondarie: https://atoka.io/public/it/azienda/idro-costruzioni-srl/4ea3e663d5ec e https://www.ufficiocamerale.it/3450/idro-costruzioni-srl . Occorre conferma del titolare prima dell'uso commerciale.
+Manrope variabile e Cormorant Garamond regular/italic sono serviti localmente da `public/fonts/`, con le rispettive licenze SIL Open Font License. Fonte: Google Fonts, repository google/fonts. Nessuna chiamata esterna per foto o font durante la navigazione.
 
-Nessuna fotografia stock, di concorrenti o copiata da Google Maps. Galleria predisposta senza fotografie. Illustrazioni SVG e 3D create nel codice e dichiarate illustrative. Nessuna testimonianza inventata. Nessun backend o servizio a pagamento. Modulo disabilitato; attivarlo solo con recapito autorizzato e informativa appropriata.
+## Dati e trasparenza
 
-La demo è `noindex,nofollow` e robots Disallow. Il JSON-LD LocalBusiness contiene soltanto nome, sede e partita IVA riscontrati nelle fonti pubbliche; esclude telefono, recensioni e servizi. Prima del lancio commerciale confermare i dati con il titolare, completare privacy, abilitare indicizzazione e sostituire le note di anteprima. Non è presente tracciamento. I font sono richiesti da Google Fonts; i link Google Maps e WhatsApp si attivano solo su click.
+`src/company.ts` centralizza i dati e lo stato interno dei servizi. I dati societari trovano riscontro nelle fonti pubbliche secondarie: https://atoka.io/public/it/azienda/idro-costruzioni-srl/4ea3e663d5ec e https://www.ufficiocamerale.it/3450/idro-costruzioni-srl . Richiesta la conferma del titolare prima del lancio commerciale. Il JSON-LD comprende nome, sede e partita IVA; non include recensioni, telefono o abilitazioni non confermate.
+
+Il footer riporta «Demo dimostrativa non ufficiale». La pagina Note editoriali chiarisce immagini generate, servizi e dati da approvare. Recensioni: 5,0/5 e 32, rilevazione del brief al 31 ottobre 2026, non live e non verificata direttamente. Nessuna fotografia da Google Maps è stata scaricata. La gallery aziendale resta in attesa di file autorizzati; il percorso editoriale ha lightbox dedicata e diciture esplicite.
+
+Telefono e WhatsApp hanno priorità. Il modulo email resta inattivo, senza simulazioni. No analytics o tracking. Demo noindex/nofollow e robots Disallow preservati.
+
+## Render esistente
+
+Servizio `srv-dbirsj7b9u1s73cbpdg0`, workspace `tea-dak14nvqj5pc73fencb0`, branch `main`, build `npm ci && npm run build`, publish `dist`, `VITE_SITE_URL=https://idro-costruzioni-srl.onrender.com`, Node 22.
+
+Nessun nuovo servizio o repository. AutoDeploy=yes è impostato, ma il sito creato tramite URL pubblico non riceve push finché non è collegato il provider Git. Per questo l’aggiornamento viene avviato manualmente sul servizio esistente. Per automatizzare: Render Account Settings → Git Deployment Credentials → collega GitHub e autorizza il repository, quindi associa la credenziale al servizio. Non è stato attivato alcun piano a pagamento.
+
+Vedi `VERIFICHE.md` per controlli effettivamente eseguiti e limiti della verifica browser.

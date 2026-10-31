@@ -16,3 +16,5 @@ export const services = [
  ['Impianti bagno e cucina','Rifacimento delle reti idrauliche di bagno e cucina, coordinando punti acqua, collegamenti e scarichi.','Spazi da vivere meglio.'],
  ['Impianti idrici e scarichi','Posa e rinnovo delle reti di adduzione e scarico, con attenzione ai percorsi e alle esigenze di manutenzione.','Ogni collegamento conta.'],
 ];
+// Metadati interni: nessuna conferma operativa o abilitazione è dedotta dai visual.
+export const serviceApproval = services.map(([name])=>({name,status:'pending-owner-confirmation',commercialApproved:false}));

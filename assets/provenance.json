@@ -1,0 +1,57 @@
+{
+  "created": "2026-10-31",
+  "tool": "Built-in Imagegen",
+  "kind": "AI-generated editorial visual concepts. Not photographs of company work.",
+  "reference": "Bathroom described in user brief. No accessible reference image was attached.",
+  "companyPhotos": "No authorized files obtained. Maps could not be inspected with available tools. No Maps photos downloaded.",
+  "assets": [
+    {
+      "key": "hero",
+      "prompt": "Create one exceptionally beautiful photorealistic architectural interior editorial photograph, landscape 1536x1024. Contemporary luxurious Italian bathroom: pale warm Calacatta marble walls with restrained grey veins, sculptural white freestanding bathtub on the RIGHT half, elegant satin brass floor standing tub faucet, spacious frameless glass walk-in shower further right, soft ivory stone floor, warm oak accent. Daylight entering from a tall window, delicate shadows, quiet sophisticated residential architecture, realistic materials and physically plausible fixtures. Wide interior camera at eye level, elegant geometry, high-end architecture magazine quality, left half darker warm stone with subtle texture and open visual breathing room for website headline. No text, no logos, no people, no watermark. This is an original illustrative editorial concept, not a real company's completed work.",
+      "source": "editorial-source/hero.png",
+      "output": "/images/hero-{640,1024,1536}.webp"
+    },
+    {
+      "key": "detail",
+      "prompt": "Photorealistic high-end architectural editorial photograph, landscape. Close detailed view of satin brass wall-mounted faucet over an ivory travertine floating basin, subtle water stream, warm light, very pale marble with grey veins, tactile stone, disciplined contemporary Italian interior, sophisticated magazine composition, no people, no logos, no text. Original fictional interior, not a real company's project.",
+      "source": "editorial-source/detail.png",
+      "output": "/images/detail-{640,1024,1536}.webp"
+    },
+    {
+      "key": "shower",
+      "prompt": "Photorealistic premium architecture editorial photograph, landscape. Frameless glass walk-in shower in a spacious light marble bathroom, satin brass rainfall shower and slim controls physically plausible, warm oak niche and folded towels, daylight, quiet expensive minimalist residential interior, clean lines, natural material detail. No tub, no people, no text, no logos. Original fictional editorial design.",
+      "source": "editorial-source/shower.png",
+      "output": "/images/shower-{640,1024,1536}.webp"
+    },
+    {
+      "key": "warmth",
+      "prompt": "Photorealistic high-end architecture editorial photograph, landscape. Beautiful contemporary warm Italian living room with ivory stone floor, a discreet elegant vertical radiator on a stone wall, low linen sofa, tall window, warm oak millwork, morning sunlight and natural shadows, restrained quiet luxury, architectural photography, no people, no brand, no text. Original fictional interior used to illustrate home heating.",
+      "source": "editorial-source/warmth.png",
+      "output": "/images/warmth-{640,1024,1536}.webp"
+    },
+    {
+      "key": "climate",
+      "prompt": "Photorealistic architecture magazine editorial photograph, landscape. Refined contemporary bedroom with ivory plaster walls, a realistic minimalist white wall mounted split air conditioner high on wall, warm oak slatted wall, linen bed, large soft daylight window, subtle natural shadows, believable real materials, warm neutral palette, no people no text no logos. Original fictional interior to illustrate climate control.",
+      "source": "editorial-source/climate.png",
+      "output": "/images/climate-{640,1024,1536}.webp"
+    },
+    {
+      "key": "kitchen",
+      "prompt": "Photorealistic architectural editorial photograph, landscape. Contemporary premium Italian kitchen, warm walnut cabinets, ivory marble waterfall island, satin brushed steel faucet with one spout above inset sink, sunlit stone floor, architectural window, beautifully restrained residential interiors, no people no logos no text. Original fictional editorial interior.",
+      "source": "editorial-source/kitchen.png",
+      "output": "/images/kitchen-{640,1024,1536}.webp"
+    },
+    {
+      "key": "technical",
+      "prompt": "Photorealistic premium trade editorial photograph, landscape. Close-up of a clean modern residential hydraulic manifold installed securely inside an open white recessed service cabinet, realistic brass valves, neatly connected red and blue PEX pipes and pressure gauge, careful believable workmanship, warm natural light, no floating parts, no workers, no logos, no text. Original fictional illustrative installation, not attributed to any company.",
+      "source": "editorial-source/technical.png",
+      "output": "/images/technical-{640,1024,1536}.webp"
+    },
+    {
+      "key": "architecture",
+      "prompt": "Photorealistic high-end interior architecture editorial photograph, landscape. A refined Italian residential hallway with warm ivory stone floor, walnut wall panels, large minimalist door opening toward a luminous contemporary bathroom, a white curved bathtub glimpsed at far end, satin brass detail, carefully composed layers, late afternoon soft natural light, calm luxurious atmosphere. No people, no text, no logos. Original fictional editorial scene.",
+      "source": "editorial-source/architecture.png",
+      "output": "/images/architecture-{640,1024,1536}.webp"
+    }
+  ]
+}

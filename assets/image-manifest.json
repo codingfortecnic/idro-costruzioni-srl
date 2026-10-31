@@ -1,0 +1,146 @@
+[
+  {
+    "file": "public/images/hero-640.webp",
+    "width": 640,
+    "height": 427,
+    "bytes": 41704
+  },
+  {
+    "file": "public/images/hero-1024.webp",
+    "width": 1024,
+    "height": 683,
+    "bytes": 96594
+  },
+  {
+    "file": "public/images/hero-1536.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 184246
+  },
+  {
+    "file": "public/images/detail-640.webp",
+    "width": 640,
+    "height": 427,
+    "bytes": 41938
+  },
+  {
+    "file": "public/images/detail-1024.webp",
+    "width": 1024,
+    "height": 683,
+    "bytes": 89750
+  },
+  {
+    "file": "public/images/detail-1536.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 164614
+  },
+  {
+    "file": "public/images/shower-640.webp",
+    "width": 640,
+    "height": 427,
+    "bytes": 36526
+  },
+  {
+    "file": "public/images/shower-1024.webp",
+    "width": 1024,
+    "height": 683,
+    "bytes": 84652
+  },
+  {
+    "file": "public/images/shower-1536.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 164220
+  },
+  {
+    "file": "public/images/warmth-640.webp",
+    "width": 640,
+    "height": 427,
+    "bytes": 55802
+  },
+  {
+    "file": "public/images/warmth-1024.webp",
+    "width": 1024,
+    "height": 683,
+    "bytes": 133222
+  },
+  {
+    "file": "public/images/warmth-1536.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 269624
+  },
+  {
+    "file": "public/images/climate-640.webp",
+    "width": 640,
+    "height": 427,
+    "bytes": 44460
+  },
+  {
+    "file": "public/images/climate-1024.webp",
+    "width": 1024,
+    "height": 683,
+    "bytes": 104128
+  },
+  {
+    "file": "public/images/climate-1536.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 206200
+  },
+  {
+    "file": "public/images/kitchen-640.webp",
+    "width": 640,
+    "height": 427,
+    "bytes": 45646
+  },
+  {
+    "file": "public/images/kitchen-1024.webp",
+    "width": 1024,
+    "height": 683,
+    "bytes": 105294
+  },
+  {
+    "file": "public/images/kitchen-1536.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 199486
+  },
+  {
+    "file": "public/images/technical-640.webp",
+    "width": 640,
+    "height": 427,
+    "bytes": 37322
+  },
+  {
+    "file": "public/images/technical-1024.webp",
+    "width": 1024,
+    "height": 683,
+    "bytes": 75388
+  },
+  {
+    "file": "public/images/technical-1536.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 139066
+  },
+  {
+    "file": "public/images/architecture-640.webp",
+    "width": 640,
+    "height": 427,
+    "bytes": 30480
+  },
+  {
+    "file": "public/images/architecture-1024.webp",
+    "width": 1024,
+    "height": 683,
+    "bytes": 70584
+  },
+  {
+    "file": "public/images/architecture-1536.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 143038
+  }
+]
