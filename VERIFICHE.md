@@ -1,46 +1,47 @@
-﻿# Luxury Italian Baroque — report 31 ottobre 2026
+# Contemporary Copper — verifiche del 31 ottobre 2026
 
-## Risultato
+## Direzione e riferimenti
 
-Ricostruita la hero come copertina centrale, con scultura WebGL reale e fregi laterali. Aggiornate tutte le cinque pagine, header, footer, pannello contatti, recensioni e pagine informative. Ornamenti SVG originali: volute simmetriche, acanto, riccioli, medaglioni, corone e cornici angolari. Nessun motivo proprietario o immagine stock. Cormorant e Manrope locali, nero/avorio/oro con sfumature metalliche. Componenti descritti nel README.
+Redesign completo in blu notte/antracite, bianco caldo, pietra e rame/bronzo. Hero fotografica con overlay scuro e testi leggibili, sezioni editoriali e tre modelli 3D pertinenti. Rimossi dal codice attivo e dai sorgenti i fregi, le cornici barocche e la scultura a nastri della versione precedente.
 
-Riferimento funzionale studiato: C:/Users/matte/OneDrive/Desktop/carrozzeria-moderna-demo/src/components/ServiceGrid.tsx e relativo CSS. Nessuna modifica al progetto della carrozzeria. Ripresi hover, apertura fissata, facce con dettagli/CTA e pulsante accessibile, adattati con transizione 500 ms e composizione ornamentale.
+Analizzato concretamente il sito locale carrozzeria-moderna-demo: ServiceGrid.tsx, automotive.css e sorgenti src. Le card usano due facce, perspective/rotateY, hover e apertura fissabile, inert e pulsante accessibile. Nei sorgenti attuali non risultano scene WebGL/Three.js. Nessuna modifica al progetto della carrozzeria. Ripreso il principio di funzionamento delle card, adattato all’impiantistica.
 
-19 segnaposto: Home 4, Chi siamo 3, Servizi 6, Realizzazioni 6. Quattro varianti, rapporti diversi e configurazione centralizzata. Tutti imageSrc null. Scultura al posto del precedente segnaposto hero; nessuna fotografia utilizzata. Logo esistente trasparente, colori conservati: ricostruzione raster precedente, non originale vettoriale.
+Le tre immagini di riferimento citate nel brief non erano disponibili negli allegati accessibili. Usate la descrizione e la hero del bagno già presente nell’archivio editoriale del progetto. È una immagine illustrativa generata in una precedente iterazione, non una foto di un lavoro aziendale; dicitura visibile nella hero e spiegazione nelle Note editoriali. Tre versioni WebP locali, solo nella Home. Nessuna fotografia dei lavori o della squadra inventata.
 
-## Scultura
+## Procedura e componenti
 
-Tre superfici curve a nastro, larghezza e torsione variabili, due volute tubolari sottili e basamento. Materiali MeshPhysicalMaterial/Standard metallici, roughness controllata, riflessi PMREM da ambiente procedurale RoomEnvironment, tre luci di studio e ombra ambientale semplificata. Lieve rotazione oscillante e risposta al puntatore. Nessun modello o HDR remoto. Modulo separato circa 252 kB gzip, necessario al 3D richiesto. Rendering limitato fuori vista, DPR 1–1,5 con riduzione sotto carico, reduced-motion statico e fallback ornamentale.
+Commit di sicurezza f05fe90 prima di intervenire. Prima realizzati Home, installazione 3D e una card completa. Screenshot a 1440 e 390 px: stato normale/aperto, verifica dell’altezza costante e del canvas WebGL. Individuato e corretto l’overflow dei segnaposto annidati. Dopo il controllo visivo estesi i servizi e le altre pagine. Prove in QA/copper-prototype.
 
-Riferimenti tecnici primari: https://r3f.docs.pmnd.rs/api/canvas ; https://threejs.org/docs/pages/RoomEnvironment.html ; https://threejs.org/docs/pages/MeshPhysicalMaterial.html .
+TechnicalScene.tsx realizza tre scene effettive in Three.js/React Three Fiber:
 
-## Collaudo
+- Home: pannello con due collettori orizzontali, tre derivazioni in rame, curve, raccordi, valvole a leva, manometro, staffe e supporto inferiore.
+- Chi siamo: miscelatore cromato con corpo, bocca curva, aeratore e comando laterale.
+- Servizi: collettore con quattro derivazioni, valvole, giunzioni e supporti sui collettori.
 
-- Lint, TypeScript e build client/SSR.
-- Test statici e HTTP: sette pagine, metadati, canonical, noindex, JSON-LD, link, 19 ID e descrizioni, quattro varianti, tre/sei card, disponibilità del modulo 3D e risorse. I soli raster di dist sono marchio e favicon.
-- Chromium Playwright: tutte le cinque pagine a 390, 768, 1440 e 1920 px. Controllo overflow, H1, canvas WebGL, galleria senza lightbox vuota, hover desktop, tap mobile, Enter/Escape e menu mobile.
-- Test dedicato delle sei card con Space/Escape; confronto di due catture della scultura con reduced-motion; perdita simulata WebGL e ripristino del fallback visibile. Nessun pageerror nel ciclo ordinario.
-- Screenshot salvati in QA/local, con card attiva e footer dedicato; QA/online per il controllo pubblico. La cattura lunga nativa della Home presentava un artefatto del compositore WebGL al fondo: sostituita con cattura per segmenti; footer verificato anche separatamente.
-- Immagini esaminate realmente: hero mobile/desktop, card aperta, Home completa, Chi siamo mobile, Servizi desktop, Realizzazioni mobile/desktop, Contatti e footer. Corretti overflow delle griglie, recensioni, spazi nelle cornici panoramiche e pannello indirizzo.
+Materiali PBR, rame satinato, bronzo e cromo, ambiente di studio procedurale PMREM, luci e ombre a 512 px. Lieve rotazione e risposta al puntatore. Scena condivisa caricata separatamente, circa 252 kB gzip, una per pagina; DPR massimo 1,4 riducibile a 1 una sola volta sotto carico. Rendering demand fuori vista, a scheda nascosta e con movimento ridotto; fallback tecnico per assenza/errore/perdita WebGL. Nessun asset 3D remoto. I modelli sono illustrativi, non schemi esecutivi o lavori documentati.
 
-La prova usa Chromium con rendering software SwiftShader, non dispositivi fisici. Non rappresenta una misura Lighthouse o una certificazione delle prestazioni su ogni GPU. Il browser integrato non era disponibile; Playwright ha consentito il collaudo.
+ServiceCards.tsx: tre card Home e sei Servizi, con testi brevi e approfonditi forniti nel brief. Hover rivela il pannello; uscita lo richiude; +/× permette apertura fissata e chiusura su touch. Enter/Space ed Escape, aria-expanded/controls e faccia inattiva inert. Transizione 500 ms; nessun salto di altezza. Servizi proposti per la demo, da confermare con il titolare.
 
-## Pubblicazione e limiti
+PhotoPlaceholder.tsx: 19 posizioni (Home 4, Chi siamo 3, Servizi 6, Realizzazioni 6), superfici pietra/antracite, trame architettoniche, camera discreta e descrizione centrale tra virgolette. Configurazione in src/data/siteImages.ts; sostituzione futura tramite imageSrc e alt, fallback su errore. Lightbox soltanto per immagini autentiche configurate. Logo trasparente già utilizzato conservato, colori invariati: ricostruzione raster precedente, non nuovo marchio né originale vettoriale.
 
-Repository e Render esistenti, nessun servizio o piano nuovo. Il commit di sicurezza prima delle modifiche è e305034. Il commit del sito, deploy live e risultati pubblici sono riportati nella consegna.
+## Test tecnici e visivi
 
-La precedente verifica aveva rilevato vecchi URL fotografici ancora serviti da Render, benché assenti da dist e da ogni pagina attiva; un deploy con cache pulita non li aveva eliminati. Il controllo pubblico dei vecchi URL resta separato dalla verifica visiva della nuova interfaccia e va riportato con il suo esito effettivo.
+Lint, TypeScript e build client/SSR. Smoke test statico e HTTP locale su sette percorsi e tredici risorse: titoli distinti, metadati, canonical, Open Graph, noindex, JSON-LD, sitemap/robots, un H1, contatti e link, descrizioni esatte dei sei servizi, 19 ID univoci e assenza di ornamenti barocchi. Solo logo/favicon e tre versioni della hero editoriale in dist.
 
-Dati aziendali e recensioni conservati dal brief; nessuna nuova verifica live delle recensioni, certificazione, garanzia o testimonianza inventata. Logo e dati commerciali restano soggetti all’approvazione del titolare prima di un lancio ufficiale.
+Playwright Chromium: viewport 390, 768, 1440 e 1920 px, cinque pagine, overflow, menu, card hover/tap/tastiera e canvas reali. Screenshot normali/aperti, pagine complete, footer e modelli in QA/copper-local. Per le catture il movimento viene fermato tramite prefers-reduced-motion; l’animazione è verificata separatamente confrontando fotogrammi reali dei tre modelli, anche dopo spostamento del puntatore. Prove di movimento ridotto e perdita simulata WebGL con ritorno al fallback.
 
-Ricontrollo prima del rilascio barocco: i precedenti URL hero-1536.webp e detail-640.webp restituiscono ora HTTP 404. La propagazione remota del precedente rilascio risulta quindi avvenuta per questi file; lo smoke test finale verifica anche technical-1024.webp.
+Durante il collaudo desktop una cattura lunga ha incontrato un timeout nel renderer software. È stato corretto il controllo DPR che poteva invalidare ripetutamente il rendering; l’adattamento ora avviene una sola volta. Il browser viene isolato per viewport. La Home viene catturata componendo la pagina con il fotogramma reale della scena WebGL, salvato anche separatamente, per evitare artefatti del compositore software. L’assestamento iniziale di luci e ombre è atteso prima di confrontare i fotogrammi ridotti.
 
-## Esito del rilascio pubblico
+Screenshot realmente esaminati: hero desktop/mobile, impianto in rame desktop/mobile, prima card chiusa/aperta, miscelatore e collettore mobile, pagine Chi siamo, Realizzazioni e Contatti complete. Le ulteriori catture desktop e i risultati pubblici sono registrati nei rispettivi file QA e nell’esito finale sotto.
 
-Sito pubblicato sul commit 14d42d208237754f07f5dbeebc2ebe91be6c35fb, deploy Render dep-dbiuoa6tlv9c73bpb14g, stato live. Servizio e piano esistenti invariati.
+## Limiti e dati
 
-Smoke test HTTPS superato: sette percorsi, dieci risorse inclusa SculptureScene, SEO e contenuti. Tutti i 24 URL delle precedenti fotografie archiviate restituiscono HTTP 404; il limite residuo del precedente rilascio è risolto nei controlli effettuati.
+Chromium con SwiftShader: non è una prova su dispositivi fisici o un benchmark Lighthouse. Il 3D rimane un modulo consistente perché richiesto esplicitamente; non viene caricato sulle pagine Realizzazioni e Contatti. Nessuna nuova verifica live delle recensioni: conservati 5,0/5, 32 e data del brief. Dati commerciali, categorie servizi e logo richiedono approvazione del titolare prima del lancio ufficiale. Nessun modulo fittizio o testimonianza inventata.
 
-Test di interazione pubblico superato: sei card con Space/Escape, scultura immobile con reduced-motion e ritorno al fallback ornamentale dopo perdita simulata del contesto WebGL. Controllo console/rete sulle cinque pagine: zero errori console e zero richieste fallite.
+Repository e servizio Render esistenti; nessun nuovo servizio o piano a pagamento. Deploy autorizzato soltanto dopo il collaudo. Commit e stato effettivo del rilascio sono riportati nell’esito finale.
 
-Screenshot effettivi in QA/online (non pubblicati dal sito), con Home composta per segmenti, cinque pagine, card attiva e footer a 390, 768, 1440 e 1920 px. I risultati della matrice sono registrati in QA/online/results.json. Esaminate anche le catture pubbliche della hero mobile, della card aperta e della hero desktop grande.
+## Esito locale definitivo
+
+Matrice completa superata sulla build /assets/index-Pq_znEg2.js: 20 combinazioni, cinque pagine a 390/768/1440/1920 px, zero overflow e zero pageerror. Risultati in QA/copper-local/results.json. Esaminati anche hero tablet/desktop grande, Home desktop con scena tecnica, griglia dei sei servizi e card attiva.
+
+Superati lint, TypeScript, build client/SSR, test statici e HTTP locale su sette percorsi e tredici risorse. Test dedicato superato sulla build finale: sei card con Space/Escape, fotogrammi diversi per tutti i tre modelli in movimento, fotogrammi stabili con movimento ridotto dopo assestamento, ritorno al fallback in caso di perdita WebGL. Nessun pageerror nel test.

@@ -13,7 +13,7 @@ function slot(id:string,description:string,page:SiteImage['page'],section:string
  return {id,description,imageSrc:null,ratio,variant,alt:description,page,section};
 }
 export const siteImages:SiteImage[]=[
- slot('home-hero','Fotografia principale di una realizzazione Idro Costruzioni','home','hero','4 / 5','ink'),
+ slot('home-squadra','Fotografia della squadra durante un intervento','home','hero','4 / 5','ink'),
  slot('home-lavoro-idraulica','Impianto idraulico realizzato','home','lavori','4 / 5','ink'),
  slot('home-lavoro-bagno','Bagno completato dall’azienda','home','lavori','3 / 2'),
  slot('home-lavoro-calore','Installazione di riscaldamento','home','lavori','3 / 2','smoke'),

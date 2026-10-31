@@ -9,12 +9,12 @@ export const company = {
 // Solo dati societari riscontrati nelle fonti pubbliche: niente recensioni o recapiti non verificati.
 export const businessSchema = {'@context':'https://schema.org','@type':'LocalBusiness',name:company.name,taxID:company.vat,address:{'@type':'PostalAddress',streetAddress:company.address,addressLocality:'Sassuolo',addressRegion:'MO',postalCode:'41049',addressCountry:'IT'}};
 export const services = [
- ['Impianti idraulici','Soluzioni per la distribuzione dell’acqua, studiate in funzione degli spazi e delle esigenze dell’edificio.','Acqua, dove serve.'],
- ['Impianti di riscaldamento','Valutazione e realizzazione di impianti per il comfort termico, con attenzione alla funzionalità e alla gestione quotidiana.','Il comfort prende forma.'],
- ['Climatizzazione','Soluzioni per il raffrescamento e il benessere degli ambienti, da definire attraverso un confronto tecnico.','La temperatura giusta.'],
- ['Manutenzione e riparazioni','Verifica delle anomalie e valutazione degli interventi necessari per ripristinare il funzionamento degli impianti.','Cura, nel tempo.'],
- ['Impianti bagno e cucina','Rifacimento delle reti idrauliche di bagno e cucina, coordinando punti acqua, collegamenti e scarichi.','Spazi da vivere meglio.'],
- ['Impianti idrici e scarichi','Posa e rinnovo delle reti di adduzione e scarico, con attenzione ai percorsi e alle esigenze di manutenzione.','Ogni collegamento conta.'],
+ ['Impianti idraulici',"Realizzazione e adeguamento di impianti idrici per abitazioni e altri ambienti, con attenzione a tubazioni, collegamenti, distribuzione e funzionalità.",'Acqua, dove serve.'],
+ ['Impianti di riscaldamento',"Soluzioni per la distribuzione del calore, installazione e interventi su componenti degli impianti di riscaldamento, secondo le esigenze dell'edificio.",'Il comfort prende forma.'],
+ ['Climatizzazione',"Soluzioni per la climatizzazione degli ambienti, con attenzione al posizionamento delle unità, al comfort e all'efficienza di funzionamento.",'La temperatura giusta.'],
+ ['Manutenzione e riparazioni','Manutenzione e riparazione di componenti idraulici e termoidraulici, con valutazione delle problematiche e degli interventi necessari.','Cura, nel tempo.'],
+ ['Impianti bagno e cucina','Realizzazione e rifacimento degli impianti idraulici per bagni e cucine, predisposizione dei collegamenti e installazione dei componenti previsti.','Spazi da vivere meglio.'],
+ ['Impianti idrici e scarichi',"Realizzazione e adeguamento di reti di distribuzione dell'acqua e sistemi di scarico, con attenzione a percorsi, collegamenti e accessibilità.",'Ogni collegamento conta.'],
 ];
 // Metadati interni: nessuna conferma operativa o abilitazione è dedotta dai visual.
 export const serviceApproval = services.map(([name])=>({name,status:'pending-owner-confirmation',commercialApproved:false}));

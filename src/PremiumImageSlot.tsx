@@ -1,2 +1,2 @@
-﻿export {default} from './BaroquePhotoPlaceholder';
-export type {PremiumImageSlotProps} from './BaroquePhotoPlaceholder';
+﻿export {default} from './PhotoPlaceholder';
+export type {PremiumImageSlotProps} from './PhotoPlaceholder';
