@@ -1,0 +1,59 @@
+{
+  "origin": "https://idro-costruzioni-srl.onrender.com",
+  "buildTag": "/assets/index-Pq_znEg2.js",
+  "results": [
+    {
+      "route": "/",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/chi-siamo",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/servizi",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/realizzazioni",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/contatti",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/chi-siamo",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/servizi",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/realizzazioni",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/contatti",
+      "width": 1440,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "webglFallback": true,
+  "checkedAt": "2026-10-31T14:40:35.455Z"
+}

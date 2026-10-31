@@ -45,3 +45,13 @@ Repository e servizio Render esistenti; nessun nuovo servizio o piano a pagament
 Matrice completa superata sulla build /assets/index-Pq_znEg2.js: 20 combinazioni, cinque pagine a 390/768/1440/1920 px, zero overflow e zero pageerror. Risultati in QA/copper-local/results.json. Esaminati anche hero tablet/desktop grande, Home desktop con scena tecnica, griglia dei sei servizi e card attiva.
 
 Superati lint, TypeScript, build client/SSR, test statici e HTTP locale su sette percorsi e tredici risorse. Test dedicato superato sulla build finale: sei card con Space/Escape, fotogrammi diversi per tutti i tre modelli in movimento, fotogrammi stabili con movimento ridotto dopo assestamento, ritorno al fallback in caso di perdita WebGL. Nessun pageerror nel test.
+
+## Esito pubblico definitivo
+
+Pubblicato sul servizio Render esistente srv-dbirsj7b9u1s73cbpdg0. Deploy dep-dbivpr0ae00c73cr302g in stato live, commit del sito c4ed4f30156d9e4efff2cbe20885920a24ac7291. Nessun nuovo servizio, repository o piano a pagamento.
+
+Smoke test HTTPS completo superato: sette pagine, tredici risorse incluse hero responsive e modulo TechnicalScene, contenuti/SEO e tutti i 24 vecchi percorsi /images/*.webp rimossi con HTTP 404. La sola hero editoriale è pubblicata nel nuovo percorso /editorial, con dicitura illustrativa.
+
+Playwright pubblico: dieci combinazioni, cinque pagine a 390 e 1440 px, senza overflow o pageerror. Canvas reali e screenshot per tutti i tre modelli, card chiusa/aperta e menu mobile. Test pubblico delle sei card con Space/Escape, tre modelli effettivamente animati, movimento ridotto stabile e fallback dopo perdita WebGL: superato. Risultati in QA/copper-online/results.json, stessa build index-Pq_znEg2.js della matrice locale di 20 scenari.
+
+Esaminate realmente le catture pubbliche della hero mobile, dell’installazione in rame, del miscelatore, del collettore e della card aperta. Le immagini QA restano nella cartella del progetto e non vengono distribuite dal sito. I risultati JSON e questo report sono versionati su GitHub.
