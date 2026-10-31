@@ -4,7 +4,7 @@
 
 - URL Render: https://idro-costruzioni-srl.onrender.com
 - Repository: https://github.com/codingfortecnic/idro-costruzioni-srl (pubblico su autorizzazione esplicita dell'utente).
-- Render: Static Site `srv-dbirsj7b9u1s73cbpdg0`, workspace My Workspace, branch main, deploy automatico su commit.
+- Render: Static Site `srv-dbirsj7b9u1s73cbpdg0`, workspace My Workspace, branch main. AutoDeploy impostato su yes, ma il collegamento tramite URL pubblico richiede la connessione del provider Git per funzionare: il push di verifica non ha avviato un deploy.
 - Dashboard: https://dashboard.render.com/static/srv-dbirsj7b9u1s73cbpdg0
 - Static Site senza backend, database o piani a pagamento attivati.
 
@@ -22,6 +22,8 @@
 - Banner recensioni presente in home e contatti: 5,0 / 32, data 31 ottobre 2026, fonte del dato indicata come brief e verifica pendente.
 
 ## Limiti di verifica
+
+Per abilitare gli aggiornamenti automatici, collegare GitHub in Render Account Settings → Git Deployment Credentials → Add credential e autorizzare il repository idro-costruzioni-srl; associare la credenziale al repository nelle impostazioni del sito. Documentazione: https://render.com/docs/git-provider e https://render.com/docs/deploys . Il deploy finale è stato avviato manualmente per pubblicare comunque la demo completa.
 
 Il servizio browser non era disponibile. Il successivo tentativo con Computer Use è stato interrotto perché il sistema non riusciva a determinare l'URL corrente di Chrome con sufficiente affidabilità. Non sono stati eseguiti test visivi desktop/mobile, ispezione console o rete del browser, verifica effettiva del canvas WebGL, interazioni, tastiera e assenza di overflow su dispositivi reali. I breakpoint, il menu accessibile, il caricamento separato del 3D, il DPR limitato, il fallback SVG e la gestione reduced-motion sono implementati, ma questi comportamenti richiedono QA browser.
 

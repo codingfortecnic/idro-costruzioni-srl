@@ -6,5 +6,5 @@ for(const [path,title,description] of pages){let html=template.replace(/<title>.
 await writeFile('dist/404.html',template);
 await writeFile('dist/robots.txt',`User-agent: *\nDisallow: /\n${origin?`Sitemap: ${origin}/sitemap.xml\n`:''}`);
 await writeFile('dist/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${origin?pages.map(([p])=>`<url><loc>${origin}${p}</loc></url>`).join(''):''}</urlset>`);
-// LocalBusiness intenzionalmente escluso dalla demo: dati e uso commerciale non ancora approvati.
+// Il JSON-LD limitato ai dati societari riscontrati è inserito dal client; demo esclusa dall'indice.
 console.log('Pagine statiche e SEO generati. Demo noindex; URL:',origin||'non ancora assegnato');

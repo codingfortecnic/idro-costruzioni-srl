@@ -8,7 +8,7 @@ Su Windows usare `npm.cmd ci`, `npm.cmd run dev`, `npm.cmd run build`. La build 
 
 ## Render
 
-Static Site gratuito, repository `codingfortecnic/idro-costruzioni-srl`, branch `main`, build `npm ci && npm run build`, publish directory `dist`. Auto deploy abilitato. `render.yaml` contiene il rewrite per il router; le cinque pagine hanno anche directory HTML reali per l'accesso diretto.
+Static Site gratuito, repository `codingfortecnic/idro-costruzioni-srl`, branch `main`, build `npm ci && npm run build`, publish directory `dist`. AutoDeploy impostato su yes, ma serve collegare il provider GitHub a Render per ricevere i push: il sito è stato creato da URL pubblico. Vedi VERIFICHE.md. `render.yaml` contiene il rewrite per un eventuale deploy Blueprint; il sito effettivo utilizza directory HTML reali per le cinque pagine e 404.html per gli indirizzi inesistenti.
 
 Impostare `VITE_SITE_URL` all'origine HTTPS assegnata da Render per generare canonical e sitemap con l'URL effettivo.
 
