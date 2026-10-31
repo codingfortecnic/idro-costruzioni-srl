@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "company": "Idro Costruzioni SRL",
+  "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJG9RcTmcwTQcRbgcQHk2tlxA",
+  "reviewDate": "2026-10-31",
+  "coverage": "not-inspected-access-unavailable",
+  "categories": [
+    {"name":"Tutte","status":"not-inspected"},
+    {"name":"Interno","status":"not-inspected"},
+    {"name":"Stanza da bagno","status":"not-inspected"},
+    {"name":"Dal proprietario","status":"not-inspected"},
+    {"name":"Video","status":"not-inspected"}
+  ],
+  "accessAttempts": [
+    {"method":"Browser inventory","result":"The browser access host is unavailable"},
+    {"method":"Native Chrome","result":"Stopped: current browser URL could not be determined reliably"},
+    {"method":"Web open of supplied Maps URL","result":"URL not accessible via web tool"},
+    {"method":"Public web search","result":"No attributable individual Maps photographs found"}
+  ],
+  "unverifiedLeads": [
+    {"source":"User brief","reportedAuthor":"Idro Costruzioni Srl","reportedPublicationMonth":"2024-09","photoUrl":null,"status":"not-independently-observed","note":"Not counted as an identified photograph. Requires opening the specific Maps photo."}
+  ],
+  "counts": {"actuallyIdentified":0,"observedOwnerUploads":0,"assessedRelevant":0,"confirmedDuplicates":0,"verifiedReuseAuthorization":0,"integrated":0,"availableTotal":null},
+  "photos": []
+}

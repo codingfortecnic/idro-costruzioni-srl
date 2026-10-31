@@ -40,3 +40,11 @@ Servizio `srv-dbirsj7b9u1s73cbpdg0`, workspace `tea-dak14nvqj5pc73fencb0`, branc
 Nessun nuovo servizio o repository. AutoDeploy=yes è impostato, ma il sito creato tramite URL pubblico non riceve push finché non è collegato il provider Git. Per questo l’aggiornamento viene avviato manualmente sul servizio esistente. Per automatizzare: Render Account Settings → Git Deployment Credentials → collega GitHub e autorizza il repository, quindi associa la credenziale al servizio. Non è stato attivato alcun piano a pagamento.
 
 Vedi `VERIFICHE.md` per controlli effettivamente eseguiti e limiti della verifica browser.
+
+## Aggiornamento demo: logo e segnaposto
+
+Il logo provvisorio è sostituito con una ricostruzione raster ad alta risoluzione dall'allegato dell'utente, su sua richiesta esplicita. Header/footer e favicon usano file locali in `public/brand/`; il sorgente è in `assets/brand-source/`, con prompt. Non è un originale vettoriale e richiede approvazione del titolare. Le anteprime social conservano la hero.
+
+`src/data/siteImages.ts` gestisce 18 posizioni fotografiche, tutte attualmente placeholder editoriali: 3 Home, 3 Chi siamo, 6 Servizi, 6 Realizzazioni. Le etichette dicono esattamente quale foto fornire. Inserire `authenticSrc`, alt appropriato e status authentic per sostituire un'immagine senza modificare componenti o layout. Nessuna fotografia autentica è stata aggiunta. `PhotoSlots.tsx` e `photo-slots.css` implementano le nuove posizioni e la lightbox. La hero è identica al redesign approvato.
+
+Ulteriori dettagli: `assets/SEGNAPOSTO-FOTO.md` e `assets/LOGO-ORIGINALE.md`. Controllo ripetibile: `node scripts/check-photo-slots.mjs` oppure `node scripts/check-photo-slots.mjs https://idro-costruzioni-srl.onrender.com`.

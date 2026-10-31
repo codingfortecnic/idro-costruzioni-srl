@@ -45,3 +45,11 @@ L’auto deploy richiede ancora l’associazione del provider GitHub a Render: l
 ## Conferme ancora necessarie
 
 File fotografici originali e diritti; servizi realmente disponibili e relative abilitazioni; telefono, WhatsApp, orari e testi commerciali; recensioni Google e data; approvazione del titolare; canale email e informativa definitiva prima di un eventuale modulo. Nessuna certificazione, anzianità, partnership o testimonianza inventata.
+
+## Aggiornamento successivo: logo ricostruito e 18 posizioni
+
+Logo ricostruito ad alta definizione dal riferimento allegato, con Imagegen integrato su esplicita richiesta successiva dell'utente. Usato in header/footer su bianco e in favicon. Ispezionato come asset, non certificato come identico vettoriale. Approvazione del titolare ancora necessaria. Documentazione e prompt in `assets/brand-source/` e `assets/LOGO-ORIGINALE.md`.
+
+Aggiunte 18 posizioni fotografiche con immagini editoriali ed etichette precise, configurabili in `src/data/siteImages.ts`. Gallery Realizzazioni di sei immagini con lightbox. Nessuna foto autentica o immagine fittizia di personale aggiunta. Hero confrontata con la versione pubblicata precedente: HTML identico, SHA-256 `90fe219b81e5bc7c6151092a988b0821a672fbc544a53d05c8334d7565a71799`. Palette, font, recensioni e struttura generale mantenuti.
+
+Lint, TypeScript/build, check delle 18 posizioni e loghi, smoke test HTTP di sette pagine e 33 asset superati in locale; quattro test sui controlli delle autorizzazioni superati. Browser ancora indisponibile: Chrome è stato ripristinato dalla condizione minimizzata, ma il sistema ha fermato la sessione perché non può determinarne l'URL. Nessuno screenshot o collaudo visivo desktop/mobile e della lightbox dichiarato eseguito. Deploy e controlli HTTPS finali sono riportati nella consegna in chat.
