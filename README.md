@@ -13,7 +13,7 @@ Versione finale `photographic-copper-v4`, pubblicata sul servizio Render esisten
 
 ## Fotografie e licenze
 
-`PHOTO-LICENSES.md` documenta autore, fonte e licenza di ogni foto. `src/data/editorialPhotos.json` controlla alt, ritagli e provenienza. Crediti disponibili nelle note editoriali; Tony Webster / CC BY 2.0 è attribuito anche accanto alla foto. Non sono presentati lavori o dipendenti di altre realtà come appartenenti all'azienda. Le fotografie IA precedenti non sono pubblicate.
+`PHOTO-LICENSES.md` documenta autore, fonte e licenza di ogni foto. `src/data/editorialPhotos.json` controlla alt, ritagli e provenienza. Crediti disponibili nelle note editoriali; Tony Webster / CC BY 2.0 è attribuito anche accanto alla foto. Non sono presentati lavori o dipendenti di altre realtà come appartenenti all'azienda. Le fotografie IA precedenti non sono pubblicate: i tre vecchi URL della hero sono disattivati con pixel trasparenti 1×1 per impedire a Render di conservare i file eliminati. Non sono usati dalle pagine.
 
 Gli originali, esclusi dal repository, sono riproducibili con `node scripts/download-stock.mjs`; `node scripts/prepare-stock.mjs` genera i WebP locali 640/1024/1600 px. Nessun hotlink fotografico in produzione. Hero con preload responsive e priorità alta; immagini sotto hero lazy, dimensionate e con alt.
 

@@ -1,5 +1,6 @@
 import {readFile,readdir,access} from 'node:fs/promises';
 import assert from 'node:assert/strict';
+import sharp from 'sharp';
 import {siteImages,services} from '../.prerender/prerender.js';
 const photos=JSON.parse(await readFile('src/data/editorialPhotos.json','utf8'));
 const origin=process.argv[2]?.replace(/\/$/,'');
@@ -28,6 +29,6 @@ for(const photo of photos){assert.ok(photo.author&&photo.source.startsWith('http
 for(const asset of await readdir('dist/assets'))assets.add('/assets/'+asset);
 for(const asset of assets){if(origin){const r=await fetch(origin+asset,{signal:AbortSignal.timeout(20000)});assert.equal(r.status,200,asset);assert.ok((await r.arrayBuffer()).byteLength>0,asset)}else await access('dist'+asset)}
 const scene=await readFile('src/TechnicalScene.tsx','utf8');assert.doesNotMatch(scene,/function Mixer|function Manifold/);assert.match(scene,/function Installation/);
-if(origin){assert.equal((await fetch(origin+'/pagina-inesistente')).status,404);for(const width of [640,1024,1536])assert.equal((await fetch(origin+`/editorial/bathroom-${width}.webp`)).status,404,'AI hero no longer published');assert.match(await fetch(origin+'/robots.txt').then(r=>r.text()),/Disallow: \//)}
+if(origin){assert.equal((await fetch(origin+'/pagina-inesistente')).status,404);for(const width of [640,1024,1536]){const response=await fetch(origin+`/editorial/bathroom-${width}.webp`);assert.equal(response.status,200);const meta=await sharp(Buffer.from(await response.arrayBuffer())).metadata();assert.equal(meta.width,1,'obsolete hero URL retired');assert.equal(meta.height,1);assert.ok(meta.hasAlpha);}assert.match(await fetch(origin+'/robots.txt').then(r=>r.text()),/Disallow: \//)}
 console.log(`PASS seven routes, six future-work positions, ${photos.length} licensed photographs, ${assets.size} assets, SEO and exactly one model.`);
 process.exit(0);

@@ -16,7 +16,7 @@ Le prove mobile sono eseguite con viewport e touch emulati in Chromium, non su d
 
 ## Contenuti e pubblicazione
 
-- Fotografia hero precedente generata con IA eliminata dagli asset pubblici.
+- Fotografia hero precedente generata con IA eliminata. Render conserva gli asset cancellati anche dopo una ricostruzione con cache pulita: i tre vecchi URL sono quindi disattivati pubblicando pixel trasparenti 1×1, non referenziati dalle pagine. Il test pubblico ne controlla dimensioni e trasparenza, impedendo che continuino a servire le vecchie fotografie.
 - Dodici soggetti fotografici autentici con fonti e licenze in `PHOTO-LICENSES.md`; versioni responsive senza copie duplicate del medesimo asset. Le anteprime degli stessi servizi su pagine diverse condividono il file.
 - Titolo, CTA, palette rame/blu notte e logo alle dimensioni approvate mantenuti.
 - Mixer e collettore 3D rimossi dal codice; installazione in rame mantenuta nella Home, con caricamento separato dal bundle principale.
@@ -26,3 +26,7 @@ Le prove mobile sono eseguite con viewport e touch emulati in Chromium, non su d
 Il bundle separato del renderer Three.js produce ancora un avviso Vite per la dimensione (circa 252 kB gzip). La build termina correttamente; quel renderer è richiesto soltanto dalla Home. Nessun piano o servizio Render aggiunto.
 
 La pubblicazione usa il repository e il servizio Render esistenti. Il controllo sul sito pubblico viene eseguito dopo il deploy con gli stessi script, passando `https://idro-costruzioni-srl.onrender.com` come origine. Report browser: `QA/final-local/results.json` e `QA/final-online/results.json`; screenshot PNG nelle stesse cartelle.
+
+## Verifica pubblica
+
+Il deploy ec150f3 è stato verificato online: dieci combinazioni pagina/viewport, tutte le sei card con hover/tap/tastiera, movimento e fallback del solo modello Home, nessun errore nella navigazione normale. Report in `QA/final-online/results.json`. La successiva modifica degli URL obsoleti non cambia HTML, CSS, JavaScript o fotografie della nuova interfaccia.
