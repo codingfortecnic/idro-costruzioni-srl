@@ -1,0 +1,59 @@
+{
+  "origin": "http://127.0.0.1:4173",
+  "buildTag": "/assets/index-DLsDAukv.js",
+  "results": [
+    {
+      "route": "/",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/chi-siamo",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/servizi",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/realizzazioni",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/contatti",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/chi-siamo",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/servizi",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/realizzazioni",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "/contatti",
+      "width": 390,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "webglFallback": true,
+  "checkedAt": "2026-11-01T14:24:55.456Z"
+}
